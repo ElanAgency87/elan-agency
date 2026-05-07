@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scents of Élan | Luxury Hand-Poured Candles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500;600&family=Jost:wght@100;200;300;400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#F7F4EF;--cream2:#F0EBE3;--cream3:#E8E0D5;
+  --dark:#16130D;--mid:#3A3628;--muted:#7A7060;
+  --faint:#A89E90;--stone:#C4B8A4;
+  --gold:#B8942A;--gold2:#D4AC48;--gold3:#E8C86A;
+  --border:rgba(22,19,13,.07);--white:#fff;
+  --black-col:#1C1917;--white-col:#F8F5F0;--red-col:#8B1A1A;
+}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--dark);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden}
+::selection{background:var(--dark);color:var(--cream)}
+::-webkit-scrollbar{width:2px}
+::-webkit-scrollbar-track{background:var(--cream)}
+::-webkit-scrollbar-thumb{background:var(--stone)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 80px;background:rgba(247,244,239,.97);border-bottom:1px solid var(--border);backdrop-filter:blur(24px)}
+.nav-brand{text-decoration:none;display:flex;align-items:center;gap:14px}
+.nav-main{font-family:'Cinzel',serif;font-size:14px;letter-spacing:5px;color:var(--dark);display:block;line-height:1}
+.nav-sub{font-size:7px;letter-spacing:5px;text-transform:uppercase;color:var(--faint);display:block;margin-top:3px}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .3s}
+.nav-links a:hover{color:var(--dark)}
+.nav-back{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color .3s}
+.nav-back:hover{color:var(--dark)}
+
+/* HERO */
+.hero{padding:140px 80px 100px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;background:var(--cream);border-bottom:1px solid var(--border)}
+.h-tag{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.h-tag-line{width:28px;height:1px;background:var(--gold)}
+.h-tag span{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--gold)}
+.h-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5vw,68px);font-weight:300;line-height:1.1;color:var(--dark);margin-bottom:24px}
+.h-h1 em{font-style:italic;color:var(--gold)}
+.h-p{font-size:14px;color:var(--muted);line-height:1.9;margin-bottom:40px;max-width:440px}
+.h-actions{display:flex;gap:16px}
+.btn-dark{font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--white);background:var(--dark);padding:15px 36px;text-decoration:none;transition:all .3s;display:inline-block}
+.btn-dark:hover{background:var(--mid);transform:translateY(-2px)}
+.btn-line{font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--dark);border:1px solid var(--dark);padding:15px 36px;text-decoration:none;transition:all .3s;display:inline-block}
+.btn-line:hover{background:var(--dark);color:var(--white)}
+.h-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
+.h-stat{background:var(--cream);padding:36px 28px}
+.hs-num{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:var(--dark);line-height:1}
+.hs-num em{font-style:italic;color:var(--gold)}
+.hs-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--faint);margin-top:6px}
+
+/* COLLECTION */
+.collection{padding:100px 80px}
+.eyebrow{font-size:9px;letter-spacing:6px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:14px}
+.eyebrow::before{content:'';width:28px;height:1px;background:var(--gold)}
+.section-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4vw,52px);font-weight:300;line-height:1.15;color:var(--dark)}
+.section-h2 em{font-style:italic;color:var(--gold)}
+.tabs{display:flex;border-bottom:1px solid var(--border);margin:48px 0 40px;overflow-x:auto}
+.tab{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--faint);background:none;border:none;padding:14px 28px;cursor:pointer;transition:color .3s;border-bottom:2px solid transparent;margin-bottom:-1px;font-family:'Jost',sans-serif;white-space:nowrap}
+.tab:hover{color:var(--dark)}
+.tab.active{color:var(--dark);border-bottom-color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.candle{background:var(--cream);padding:44px 36px;position:relative;overflow:hidden;transition:background .3s;border-left:3px solid transparent}
+.candle:hover{background:var(--cream2);border-left-color:var(--gold)}
+.c-col{font-size:8px;letter-spacing:4px;text-transform:uppercase;color:var(--faint);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.cdot{width:8px;height:8px;border-radius:50%;border:1px solid;flex-shrink:0}
+.dot-black{background:#1C1917;border-color:#555}
+.dot-white{background:#F8F5F0;border-color:#ccc}
+.dot-red{background:#8B1A1A;border-color:#c44}
+.c-name{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;color:var(--dark);margin-bottom:6px;line-height:1.1}
+.c-inspired{font-size:11px;color:var(--faint);font-style:italic;margin-bottom:18px}
+.c-notes{font-size:11px;color:var(--muted);line-height:1.8;padding-top:18px;border-top:1px solid var(--border);margin-bottom:20px}
+.c-price{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--dark);display:flex;align-items:baseline;gap:10px}
+.c-price-sub{font-family:'Jost',sans-serif;font-size:10px;color:var(--faint);letter-spacing:1px}
+.c-btn{display:inline-flex;align-items:center;gap:6px;margin-top:20px;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);text-decoration:none;opacity:0;transform:translateY(6px);transition:all .3s}
+.candle:hover .c-btn{opacity:1;transform:translateY(0)}
+
+/* PROCESS */
+.process{padding:100px 80px;background:var(--cream2);border-top:1px solid var(--border)}
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-top:64px}
+.proc-step{background:var(--cream2);padding:44px 32px}
+.proc-num{font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;color:rgba(22,19,13,.05);line-height:1;margin-bottom:20px}
+.proc-title{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.proc-desc{font-size:12px;color:var(--muted);line-height:1.9}
+
+/* ENQUIRY */
+.enquiry{padding:100px 80px;background:var(--dark)}
+.e-inner{max-width:640px;margin:0 auto;text-align:center}
+.e-ey{font-size:8px;letter-spacing:7px;text-transform:uppercase;color:var(--gold2);margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:16px}
+.e-ey::before,.e-ey::after{content:'';width:28px;height:1px;background:var(--gold2)}
+.e-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,48px);font-weight:300;color:var(--cream);line-height:1.15;margin-bottom:16px}
+.e-h2 em{font-style:italic;color:var(--gold2)}
+.e-p{font-size:13px;color:rgba(247,244,239,.4);line-height:1.9;margin-bottom:52px}
+.eform{display:flex;flex-direction:column;gap:13px;text-align:left}
+.erow{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.eg{display:flex;flex-direction:column;gap:7px}
+.el{font-size:8px;letter-spacing:4px;text-transform:uppercase;color:rgba(247,244,239,.25)}
+.eg input,.eg select,.eg textarea{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);color:var(--cream);padding:14px 16px;font-family:'Jost',sans-serif;font-size:13px;font-weight:300;outline:none;transition:border-color .3s;width:100%;-webkit-appearance:none}
+.eg input:focus,.eg select:focus,.eg textarea:focus{border-color:rgba(212,172,72,.4)}
+.eg select option{background:var(--dark)}
+.eg textarea{resize:vertical;min-height:100px}
+.esub{font-family:'Cinzel',serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--dark);background:var(--gold2);border:none;padding:17px 48px;cursor:pointer;transition:all .3s;align-self:center;margin-top:8px}
+.esub:hover{background:var(--gold3);transform:translateY(-2px)}
+
+/* FOOTER */
+footer{padding:48px 80px 32px;background:var(--dark);border-top:1px solid rgba(255,255,255,.05)}
+.f-inner{display:flex;justify-content:space-between;align-items:center}
+.f-brand{display:flex;align-items:center;gap:12px}
+.f-name{font-family:'Cinzel',serif;font-size:14px;letter-spacing:5px;color:var(--cream)}
+.flinks{display:flex;gap:28px;list-style:none}
+.flinks a{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(247,244,239,.25);text-decoration:none;transition:color .3s}
+.flinks a:hover{color:var(--cream)}
+.fcopy{font-size:10px;color:rgba(247,244,239,.15)}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+@media(max-width:1024px){
+  nav{padding:16px 24px}.nav-links{display:none}
+  .hero{grid-template-columns:1fr;padding:120px 24px 60px;gap:48px}
+  .collection,.process,.enquiry{padding:60px 24px}
+  .grid{grid-template-columns:1fr}
+  .proc-grid{grid-template-columns:1fr 1fr}
+  .erow{grid-template-columns:1fr}
+  footer{padding:32px 24px}.f-inner{flex-direction:column;gap:20px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">
+    <img src="logo.png" alt="Élan Agency" style="height:44px;width:auto;object-fit:contain">
+    <span class="nav-text">
+      <span class="nav-main">SCENTS OF ÉLAN</span>
+      <span class="nav-sub">Part of Élan Agency</span>
+    </span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#collection">Collection</a></li>
+    <li><a href="#process">Crafted</a></li>
+    <li><a href="#enquiry">Enquire</a></li>
+  </ul>
+  <a href="index.html" class="nav-back">← Élan Agency</a>
+</nav>
+
+<section class="hero">
+  <div>
+    <div class="h-tag"><div class="h-tag-line"></div><span>Hand-Poured · Brisbane, Australia</span></div>
+    <h1 class="h-h1">The world's most<br>desired scents.<br><em>Perfected in wax.</em></h1>
+    <p class="h-p">Eleven luxury hand-poured candles across three curated collections. Each one inspired by the world's most iconic fragrances, then made entirely our own.</p>
+    <div class="h-actions">
+      <a href="#collection" class="btn-dark">Explore Collection</a>
+      <a href="#enquiry" class="btn-line">Enquire Now</a>
+    </div>
+  </div>
+  <div class="h-stats">
+    <div class="h-stat"><div class="hs-num">80<em>hr</em></div><div class="hs-label">Burn Time</div></div>
+    <div class="h-stat"><div class="hs-num">11</div><div class="hs-label">Signature Scents</div></div>
+    <div class="h-stat"><div class="hs-num">3</div><div class="hs-label">Collections</div></div>
+    <div class="h-stat"><div class="hs-num">10<em>%</em></div><div class="hs-label">Fragrance Load</div></div>
+  </div>
+</section>
+
+<section class="collection reveal" id="collection">
+  <p class="eyebrow">The Collection</p>
+  <h2 class="section-h2">Eleven scents.<br><em>One obsession.</em></h2>
+  <div class="tabs">
+    <button class="tab active" onclick="filter('all',this)">All Scents</button>
+    <button class="tab" onclick="filter('black',this)">The Black Collection</button>
+    <button class="tab" onclick="filter('white',this)">The White Collection</button>
+    <button class="tab" onclick="filter('red',this)">The Red Collection</button>
+  </div>
+  <div class="grid" id="grid">
+    <div class="candle" data-col="black">
+      <div class="c-col"><div class="cdot dot-black"></div>The Black Collection</div>
+      <div class="c-name">Undone</div>
+      <div class="c-inspired">Inspired by Tom Ford Fucking Fabulous</div>
+      <div class="c-notes">Warm leather · Sage · Almond · Clary sage</div>
+      <div class="c-price">$49.99 <span class="c-price-sub">220g · 80hr burn</span></div>
+      <a href="#enquiry" class="c-btn">Enquire →</a>
+    </div>
+    <div class="candle" data-col="black">
+      <div class="c-col"><div class="cdot dot-black"></div>The Black Collection</div>
+      <div class="c-name">Dark Bloom</div>
+      <div class="c-inspired">Inspired by Tom Ford Black Orchid</div>
+      <div class="c-notes">Black orchid · Truffle · Patchouli · Blackcurrant</div>
+      <div class="c-price">$49.99 <span class="c-price-sub">220g · 80hr burn</span></div>
+      <a href="#enquiry" class="c-btn">Enquire →</a>
+    </div>
+    <div class="candle" data-col="black">
+      <div class="c-col"><div class="cdot dot-black"></div>The Black Collection</div>
+      <div class="c-name">Decadence</div>
+      <div class="c-inspired">Inspired by Tom Ford Tobacco Vanille</div>
+      <div class="c-notes">Tobacco leaf · Vanilla · Cacao · Tonka bean</div>
+      <div class="c-price">$49.99 <span class="c-price-sub">220g · 80hr burn</span></div>
+      <a href="#enquiry" class="c-btn">Enquire →</a>
+    </div>
+    <div class="candle" data-col="black">
+      <div class="c-col"><div class="cdot dot-black"></div>The Black Collection</div>
+      <div class="c-name">Obsidian</div>
+      <div class="c-inspired">Inspired by Tom Ford Tobacco Oud</div>
+      <div class="c-notes">Tobacco · Oud wood · Dark resin · Incense</div>
+      <div class="c-price">$49.99 <span class="c-price-sub">220g · 80hr burn</span></div>
+      <a href="#enquiry" class="c-btn">Enquire →</a>
+    </div>
+    <div class="candle" data-col="white">
+      <div class="c-col"><div class="cdot dot-white"></div>The White Collection</div>
+      <div class="c-name">First Light</div>
+      <div class="c-inspired">Inspired by Louis Vuitton Imagination</div>
+      <div class="c-notes">Bergamot · Citron · Ginger · Neroli · Black tea</div>
+      <div class="c-price">$49.99 <span class="c-price-sub">220g · 80hr burn</span></div>
+      <a href="#enquiry" class="c-btn">Enquire →</a>
+    </div>
+    <div class="candle" data-col="white">
+      <div class="c-col"><div class="cdot dot-white"></div>The White Collection</div>
+      <div class="c-name">Saffron Veil</div>
+      <div class="c-inspired">Inspired by Baccarat Rouge 540</div>
+      <div class="c-notes">Jasmine · Saffron · Amber · Cedarwood · Fir resin</div>
+      <div class="c-price">$49.99 <span class="c-price-sub">220g · 80hr burn</span></div>
+      <a href="#enquiry" class="c-btn">Enquire →</a>
+    </div>
+    <div class="candle" data-col="white">
+      <div class="c-col"><div class="cdot dot-white"></div>The White Collection</div>
+      <div class="c-name">Smoke & Birch</div>
+      <div class="c-inspired">Inspired by Creed Aventus</div>
+      <div class="c-notes">Pineapple · Birch · Blackcurrant · Oakmoss</div>
+      <div class="c-price">$49.99 <span class="c-price-sub">220g · 80hr burn</span></div>
+      <a href="#enquiry" class="c-btn">Enquire →</a>
+    </div>
+    <div class="candle" data-col="white">
+      <div class="c-col"><div class="cdot dot-white"></div>The White Collection</div>
+      <div class="c-name">Libre Spirit</div>
+      <div class="c-inspired">Inspired by YSL Libre</div>
+      <div class="c-notes">Lavender · Vanilla · Orange blossom · White musk</div>
+      <div class="c-price">$49.99 <span class="c-price-sub">220g · 80hr burn</span></div>
+      <a href="#enquiry" class="c-btn">Enquire →</a>
+    </div>
+    <div class="candle" data-col="white">
+      <div class="c-col"><div class="cdot dot-white"></div>The White Collection</div>
+      <div class="c-name">Sauvage Hour</div>
+      <div class="c-inspired">Inspired by Dior Sauvage</div>
+      <div class="c-notes">Bergamot · Pepper · Ambroxan · Vetiver</div>
+      <div class="c-price">$49.99 <span class="c-price-sub">220g · 80hr burn</span></div>
+      <a href="#enquiry" class="c-btn">Enquire →</a>
+    </div>
+    <div class="candle" data-col="white">
+      <div class="c-col"><div class="cdot dot-white"></div>The White Collection</div>
+      <div class="c-name">Rose Imperiale</div>
+      <div class="c-inspired">Inspired by Parfums de Marly Delina</div>
+      <div class="c-notes">Turkish rose · Lychee · Incense · Peony · Musk</div>
+      <div class="c-price">$49.99 <span class="c-price-sub">220g · 80hr burn</span></div>
+      <a href="#enquiry" class="c-btn">Enquire →</a>
+    </div>
+    <div class="candle" data-col="white">
+      <div class="c-col"><div class="cdot dot-white"></div>The White Collection</div>
+      <div class="c-name">Velvet Hour</div>
+      <div class="c-inspired">Inspired by YSL Black Opium</div>
+      <div class="c-notes">Coffee · Vanilla · White flowers · Patchouli</div>
+      <div class="c-price">$49.99 <span class="c-price-sub">220g · 80hr burn</span></div>
+      <a href="#enquiry" class="c-btn">Enquire →</a>
+    </div>
+    <div class="candle" data-col="red">
+      <div class="c-col"><div class="cdot dot-red"></div>The Red Collection — Limited Edition</div>
+      <div class="c-name">Obsidian</div>
+      <div class="c-inspired">Inspired by Tom Ford Tobacco Oud</div>
+      <div class="c-notes">Tobacco · Oud wood · Dark resin · Incense</div>
+      <div class="c-price">$69.99 <span class="c-price-sub">450g · Limited</span></div>
+      <a href="#enquiry" class="c-btn">Enquire →</a>
+    </div>
+  </div>
+</section>
+
+<section class="process reveal" id="process">
+  <p class="eyebrow">Handcrafted</p>
+  <h2 class="section-h2">Made with<br><em>obsessive care.</em></h2>
+  <div class="proc-grid">
+    <div class="proc-step"><div class="proc-num">01</div><div class="proc-title">The Blend</div><div class="proc-desc">A premium 70/30 coconut-soy wax blend, selected for extraordinary scent throw and a clean, slow burn of up to 80 hours.</div></div>
+    <div class="proc-step"><div class="proc-num">02</div><div class="proc-title">The Scent</div><div class="proc-desc">Luxury fragrance oils added at exactly 65°C and stirred for two full minutes to fully bind with the wax.</div></div>
+    <div class="proc-step"><div class="proc-num">03</div><div class="proc-title">The Pour</div><div class="proc-desc">Each candle is hand-poured individually into its vessel and allowed to cool undisturbed for 24 hours.</div></div>
+    <div class="proc-step"><div class="proc-num">04</div><div class="proc-title">The Cure</div><div class="proc-desc">A minimum two-week cure locks in full scent complexity. No candle leaves our hands before it is ready.</div></div>
+  </div>
+</section>
+
+<section class="enquiry reveal" id="enquiry">
+  <div class="e-inner">
+    <div class="e-ey">Place an Order</div>
+    <h2 class="e-h2">Ready to <em>order?</em></h2>
+    <p class="e-p">Complete the form below and we will be in touch within 24 hours. We welcome individual orders, gift sets, corporate gifting, and wholesale enquiries.</p>
+    <form class="eform" name="candle-enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field"><input type="hidden" name="form-name" value="candle-enquiry"><input type="hidden" name="_reply-to" value="samuel@elanagency.com.au"><p style="display:none"><input name="bot-field"></p>
+      <div class="erow">
+        <div class="eg"><label class="el">First Name</label><input type="text" placeholder="Your first name" required></div>
+        <div class="eg"><label class="el">Last Name</label><input type="text" placeholder="Your last name" required></div>
+      </div>
+      <div class="eg"><label class="el">Email Address</label><input type="email" placeholder="your@email.com" required></div>
+      <div class="eg"><label class="el">Phone Number</label><input type="tel" placeholder="+61 000 000 000"></div>
+      <div class="eg">
+        <label class="el">Scent Selection</label>
+        <select>
+          <option value="">Select a scent...</option>
+          <optgroup label="The Black Collection">
+            <option>Undone — Warm leather, sage, almond</option>
+            <option>Dark Bloom — Black orchid, truffle, patchouli</option>
+            <option>Decadence — Tobacco leaf, vanilla, cacao</option>
+            <option>Obsidian — Tobacco, oud wood, dark resin</option>
+          </optgroup>
+          <optgroup label="The White Collection">
+            <option>First Light — Bergamot, citron, black tea</option>
+            <option>Saffron Veil — Jasmine, saffron, amber</option>
+            <option>Smoke & Birch — Pineapple, birch, oakmoss</option>
+            <option>Libre Spirit — Lavender, vanilla, orange blossom</option>
+            <option>Sauvage Hour — Bergamot, pepper, ambroxan</option>
+            <option>Rose Imperiale — Turkish rose, lychee, peony</option>
+            <option>Velvet Hour — Coffee, vanilla, white flowers</option>
+          </optgroup>
+          <optgroup label="The Red Collection — Limited">
+            <option>Obsidian Red — Tobacco, oud wood, dark resin ($69.99)</option>
+          </optgroup>
+          <option value="multiple">Multiple scents / unsure</option>
+        </select>
+      </div>
+      <div class="eg">
+        <label class="el">Order Type</label>
+        <select>
+          <option>Individual order (1-2 candles)</option>
+          <option>Gift set — 3-pack ($135)</option>
+          <option>Bulk order (6+)</option>
+          <option>Corporate gifting</option>
+          <option>Wholesale enquiry</option>
+          <option>Real estate / home staging</option>
+        </select>
+      </div>
+      <div class="eg"><label class="el">Message</label><textarea placeholder="Tell us about your order or any special requests..."></textarea></div>
+      <button type="submit" class="esub">Send Enquiry</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="f-inner">
+    <div class="f-brand">
+      <img src="logo.png" alt="Élan Agency" style="height:36px;width:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:.7">
+      <span class="f-name">SCENTS OF ÉLAN</span>
+    </div>
+    <ul class="flinks">
+      <li><a href="#collection">Collection</a></li>
+      <li><a href="#enquiry">Enquire</a></li>
+      <li><a href="index.html">Élan Agency</a></li>
+      <li><a href="https://instagram.com/scentsofelan" target="_blank">Instagram</a></li>
+    </ul>
+    <p class="fcopy">© 2015 Élan Agency · Brisbane, Australia</p>
+  </div>
+</footer>
+
+<script>
+function filter(type,btn){
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.candle').forEach(c=>{ c.style.display=(type==='all'||c.dataset.col===type)?'block':'none'; });
+}
+const obs=new IntersectionObserver(e=>{ e.forEach(x=>{ if(x.isIntersecting) x.target.classList.add('visible'); }); },{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+function handleSubmit(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('.esub');
+  const email=e.target.querySelector('input[type="email"]').value;
+  btn.textContent='Enquiry Sent ✓';btn.style.background='#3a6b34';btn.style.color='#fff';
+  setTimeout(()=>{ btn.textContent='Send Enquiry';btn.style.background='';btn.style.color='';e.target.reset(); },4000);
+  window.location.href=`mailto:hello@elanagency.com.au?subject=Scents of Élan Enquiry&body=From: ${email}`;
+}
+</script>
+</body>
+</html>
