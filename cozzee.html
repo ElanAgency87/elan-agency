@@ -160,7 +160,7 @@ footer{background:var(--orange);padding:44px 52px 0}
   .bags-photo{height:260px}
 }
 
-.cause-tile{cursor:pointer;transition:transform .2s,opacity .2s}
+.cause-tile{cursor:pointer;transition:transform .2s,opacity .2s}.cause-tile img,.cause-tile span{pointer-events:none}
 .cause-tile:hover{transform:translateY(-4px);opacity:0.9}
 .cause-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0);z-index:2000;display:flex;align-items:center;justify-content:center;pointer-events:none;transition:background .4s}
 .cause-modal-overlay.open{background:rgba(0,0,0,0.75);pointer-events:all}
@@ -493,6 +493,7 @@ const causes = {
   }
 };
 
+document.addEventListener('DOMContentLoaded',function(){
 document.querySelectorAll('.cause-tile').forEach(tile => {
   tile.addEventListener('click', () => {
     const name = tile.querySelector('.cause-name').textContent.trim();
@@ -509,6 +510,7 @@ document.querySelectorAll('.cause-tile').forEach(tile => {
 document.getElementById('causeClose').addEventListener('click', () => document.getElementById('causeOverlay').classList.remove('open'));
 document.getElementById('causeOverlay').addEventListener('click', e => { if(e.target.id === 'causeOverlay') document.getElementById('causeOverlay').classList.remove('open'); });
 document.addEventListener('keydown', e => { if(e.key === 'Escape') document.getElementById('causeOverlay').classList.remove('open'); });
+});
 </script>
 </body>
 </html>
