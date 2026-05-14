@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Élan Talent — Boutique Talent Management, Brisbane</title>
+<meta name="description" content="Élan Talent is Australia's most considered boutique talent management agency. Athletes, entertainers, and personalities. Brisbane.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --cream: #f0ebe2;
+  --black: #0a0a0a;
+  --ink: #111;
+  --muted: rgba(10,10,10,0.45);
+  --muted-2: rgba(10,10,10,0.62);
+}
+html { scroll-behavior: smooth; }
+body { background: var(--cream); color: var(--ink); font-family: 'Outfit', sans-serif; font-weight: 400; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+::selection { background: var(--black); color: var(--cream); }
+::-webkit-scrollbar { width: 2px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--black); }
+
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 28px 48px; display: flex; align-items: center; justify-content: space-between; transition: background 0.4s, padding 0.4s, border-bottom 0.4s; }
+nav.over-hero { background: transparent; }
+nav.over-hero .nav-brand, nav.over-hero .nav-links a, nav.over-hero .nav-back { color: #fff; }
+nav.scrolled { background: rgba(240,235,226,0.96); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(10,10,10,0.1); padding: 20px 48px; }
+.nav-back { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); text-decoration: none; transition: opacity 0.3s; }
+.nav-back:hover { opacity: 0.5; }
+.nav-brand { font-size: 13px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); text-decoration: none; position: absolute; left: 50%; transform: translateX(-50%); }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); text-decoration: none; transition: opacity 0.3s; }
+.nav-links a:hover { opacity: 0.5; }
+
+.hero { min-height: 100vh; position: relative; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 48px 64px; background: var(--black); overflow: hidden; }
+.hero-photo-bg { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0.55) 75%, rgba(0,0,0,0.85) 100%); pointer-events: none; }
+.hero-content { position: relative; z-index: 2; max-width: 1400px; }
+.hero-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.75); margin-bottom: 20px; }
+.hero-h1 { font-size: clamp(3.8rem, 11vw, 11.5rem); font-weight: 900; line-height: 0.92; letter-spacing: -0.025em; text-transform: uppercase; color: #fff; }
+
+.section { padding: 120px 48px; }
+.section-inner { max-width: 1400px; margin: 0 auto; }
+.two-col { display: grid; grid-template-columns: 200px 1fr; gap: 80px; align-items: start; }
+.col-label { font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); padding-top: 14px; }
+
+.about { background: var(--cream); }
+.about-statement { font-size: clamp(1.6rem, 3.2vw, 3rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 40px; }
+.about-link { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); text-decoration: none; transition: gap 0.3s; }
+.about-link:hover { gap: 18px; }
+.about-link::after { content: '→'; font-size: 14px; }
+
+.vision { background: var(--cream); padding: 60px 0 120px; }
+.vision-inner { max-width: 1400px; margin: 0 auto; padding: 0 48px; }
+.vision-display { font-size: clamp(4rem, 11vw, 11rem); font-weight: 900; line-height: 0.9; letter-spacing: -0.028em; text-transform: uppercase; color: var(--ink); margin-bottom: 100px; }
+.vision-body { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; max-width: 1400px; margin: 0 auto; padding: 0 48px; }
+.vision-body-text { font-size: clamp(1.1rem, 2vw, 1.5rem); font-weight: 600; line-height: 1.5; color: var(--ink); max-width: 540px; }
+.vision-body-sub { font-size: 15px; font-weight: 400; line-height: 1.75; color: var(--muted-2); max-width: 460px; padding-top: 6px; }
+
+.expertise { background: var(--cream); padding: 80px 0 120px; }
+.expertise-header { padding: 0 48px 60px; max-width: 1400px; margin: 0 auto; }
+.expertise-label { font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+.roster { display: grid; grid-template-columns: repeat(3, 1fr); align-items: start; padding: 0 48px; gap: 32px; max-width: 1400px; margin: 0 auto; }
+.roster-col { display: flex; flex-direction: column; gap: 48px; }
+.roster-col:nth-child(2) { margin-top: 80px; }
+.roster-col:nth-child(3) { margin-top: 160px; }
+.roster-item-label { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); text-decoration: underline; text-underline-offset: 4px; margin-bottom: 14px; display: block; }
+.roster-photo { width: 100%; aspect-ratio: 3/4; background: #ccc7be; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.roster-col:nth-child(1) .roster-item:nth-child(2) .roster-photo { aspect-ratio: 4/3; }
+.roster-col:nth-child(3) .roster-photo { aspect-ratio: 2/3; }
+.roster-photo-placeholder { font-size: clamp(5rem, 12vw, 9rem); font-weight: 900; color: rgba(10,10,10,0.1); letter-spacing: -0.04em; line-height: 1; text-transform: uppercase; user-select: none; }
+.roster-note { max-width: 1400px; margin: 64px auto 0; padding: 0 48px; border-top: 1px solid rgba(10,10,10,0.12); padding-top: 24px; font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+
+.work { background: var(--cream); padding: 80px 48px 120px; border-top: 1px solid rgba(10,10,10,0.1); }
+.work-inner { max-width: 1400px; margin: 0 auto; }
+.work-intro { margin-bottom: 60px; }
+.work-list {}
+.work-row { display: grid; grid-template-columns: 200px 1fr 1.6fr; gap: 60px; padding: 36px 0; border-bottom: 1px solid rgba(10,10,10,0.1); align-items: baseline; transition: padding-left 0.3s; }
+.work-row:hover { padding-left: 16px; }
+.work-num { font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+.work-title { font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 800; letter-spacing: -0.01em; color: var(--ink); line-height: 1; }
+.work-desc { font-size: 14px; font-weight: 400; line-height: 1.75; color: var(--muted-2); }
+
+.enquire { background: var(--cream); padding: 120px 48px; border-top: 1px solid rgba(10,10,10,0.1); }
+.enquire-inner { max-width: 1400px; margin: 0 auto; }
+.enquire-heading { font-size: clamp(2.8rem, 7vw, 7rem); font-weight: 900; letter-spacing: -0.025em; text-transform: uppercase; line-height: 0.9; color: var(--ink); margin-bottom: 80px; }
+.enquire-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-bottom: 80px; }
+.enq-card { padding-top: 36px; border-top: 1px solid rgba(10,10,10,0.15); }
+.enq-label { font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+.enq-title { font-size: clamp(1.4rem, 2.4vw, 2rem); font-weight: 800; letter-spacing: -0.015em; color: var(--ink); line-height: 1.05; margin-bottom: 20px; }
+.enq-desc { font-size: 14px; font-weight: 400; line-height: 1.8; color: var(--muted-2); margin-bottom: 32px; max-width: 440px; }
+.enq-cta { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); text-decoration: none; transition: gap 0.3s; }
+.enq-cta:hover { gap: 18px; }
+.enq-cta::after { content: '→'; font-size: 14px; }
+.enq-direct { border-top: 1px solid rgba(10,10,10,0.1); padding-top: 40px; display: flex; align-items: center; gap: 24px; }
+.enq-direct-label { font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+.enq-direct a { font-size: clamp(1rem, 1.6vw, 1.4rem); font-weight: 700; color: var(--ink); text-decoration: none; transition: opacity 0.3s; }
+.enq-direct a:hover { opacity: 0.5; }
+
+footer { background: var(--black); padding: 64px 48px 40px; }
+.foot-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto auto; gap: 80px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.foot-brand { font-size: 15px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; margin-bottom: 14px; }
+.foot-tagline { font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.4); line-height: 1.6; max-width: 320px; }
+.foot-col { display: flex; flex-direction: column; gap: 12px; }
+.foot-col-label { font-size: 10px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 4px; }
+.foot-col a { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.3s; }
+.foot-col a:hover { color: #fff; }
+.foot-bottom { max-width: 1400px; margin: 32px auto 0; display: flex; justify-content: space-between; font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
+
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.9s ease, transform 0.9s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 1024px) {
+  .two-col { grid-template-columns: 140px 1fr; gap: 48px; }
+  .roster-col:nth-child(2) { margin-top: 40px; }
+  .roster-col:nth-child(3) { margin-top: 80px; }
+  .vision-body { grid-template-columns: 1fr; gap: 24px; padding: 0 36px; }
+  .work-row { grid-template-columns: 1fr 1.4fr; gap: 32px; }
+  .work-num { display: none; }
+  .enquire-grid { grid-template-columns: 1fr; gap: 48px; }
+  .foot-inner { grid-template-columns: 1fr 1fr; gap: 48px; }
+}
+@media (max-width: 720px) {
+  nav, nav.scrolled { padding: 18px 22px; }
+  .nav-brand, .nav-links { display: none; }
+  .hero { padding: 0 22px 48px; }
+  .section, .work, .enquire { padding: 80px 22px; }
+  .vision { padding: 40px 0 80px; }
+  .vision-inner, .vision-body { padding: 0 22px; }
+  .vision-body { grid-template-columns: 1fr; }
+  .expertise { padding: 60px 0 80px; }
+  .expertise-header, .roster, .roster-note { padding: 0 22px; }
+  .roster { grid-template-columns: 1fr; }
+  .roster-col:nth-child(2), .roster-col:nth-child(3) { margin-top: 0; }
+  .roster-col:nth-child(3) .roster-photo { aspect-ratio: 3/4; }
+  .two-col { grid-template-columns: 1fr; gap: 16px; }
+  .col-label { display: none; }
+  .work-row { grid-template-columns: 1fr; gap: 10px; padding: 28px 0; }
+  .foot-inner { grid-template-columns: 1fr; gap: 32px; }
+  footer { padding: 48px 22px 32px; }
+  .enq-direct { flex-direction: column; align-items: flex-start; gap: 12px; }
+}
+</style>
+</head>
+<body>
+
+<nav id="nav" class="over-hero">
+  <a href="index.html" class="nav-back">← Élan Agency</a>
+  <a href="index.html" class="nav-brand">Élan Talent</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#enquire">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-photo-bg"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">The advocate for Australia's most</p>
+    <h1 class="hero-h1">Exceptional<br>Talent.</h1>
+  </div>
+</section>
+
+<section class="section about reveal" id="about">
+  <div class="section-inner">
+    <div class="two-col">
+      <span class="col-label">About</span>
+      <div>
+        <p class="about-statement">Élan Talent is Australia's most considered boutique talent agency, enabling a selective roster of athletes, entertainers, and personalities to build lasting careers, access elite opportunities, and define their own legacy.</p>
+        <a href="#expertise" class="about-link">Our Expertise</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="vision reveal">
+  <div class="vision-inner">
+    <div class="vision-display">We Place<br>Our Talent<br>At The Centre<br>Of Culture.</div>
+  </div>
+  <div class="vision-body">
+    <p class="vision-body-text">We serve as advocates, strategists, and connectors, elevating Australia's leading talent to opportunities that define careers, not just moments.</p>
+    <p class="vision-body-sub">Élan Talent operates by invitation. A deliberately small roster, deeply managed, with every client receiving our principal's direct attention, advocacy, and commitment.</p>
+  </div>
+</section>
+
+<section class="expertise reveal" id="expertise">
+  <div class="expertise-header">
+    <span class="expertise-label">Expertise</span>
+  </div>
+  <div class="roster">
+    <div class="roster-col">
+      <div class="roster-item">
+        <span class="roster-item-label">Athletes</span>
+        <div class="roster-photo"><span class="roster-photo-placeholder">A</span></div>
+      </div>
+      <div class="roster-item">
+        <span class="roster-item-label">Founders &amp; Public Figures</span>
+        <div class="roster-photo"><span class="roster-photo-placeholder">F</span></div>
+      </div>
+    </div>
+    <div class="roster-col">
+      <div class="roster-item">
+        <span class="roster-item-label">Entertainers</span>
+        <div class="roster-photo"><span class="roster-photo-placeholder">E</span></div>
+      </div>
+    </div>
+    <div class="roster-col">
+      <div class="roster-item">
+        <span class="roster-item-label">Presenters &amp; Personalities</span>
+        <div class="roster-photo"><span class="roster-photo-placeholder">P</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="roster-note">Roster by invitation only — enquiries considered in confidence</div>
+</section>
+
+<section class="work reveal" id="work">
+  <div class="work-inner">
+    <div class="two-col work-intro">
+      <span class="col-label">What We Do</span>
+      <p style="font-size:clamp(1.4rem,2.6vw,2.2rem);font-weight:800;letter-spacing:-0.015em;line-height:1.1;color:var(--ink)">A full management discipline, from first deal to long career.</p>
+    </div>
+    <div class="work-list">
+      <div class="work-row"><span class="work-num">01</span><span class="work-title">Brand Partnerships</span><p class="work-desc">Endorsements, ambassadorships, and long-form commercial deals with brands that align with our clients' values, market position, and career arc.</p></div>
+      <div class="work-row"><span class="work-num">02</span><span class="work-title">Commercial Negotiation</span><p class="work-desc">Contract structure, fee architecture, usage rights, and the legal scaffolding behind every deal. We read the fine print, hold the line, and leave nothing on the table.</p></div>
+      <div class="work-row"><span class="work-num">03</span><span class="work-title">Media &amp; Communications</span><p class="work-desc">Press strategy, interviews, appearances, and proactive narrative management. The right exposure, on the right platforms, at the right moment.</p></div>
+      <div class="work-row"><span class="work-num">04</span><span class="work-title">Speaking &amp; Appearances</span><p class="work-desc">Keynote bookings, panel placements, hosting engagements, and appearance schedules built around audience quality, not volume.</p></div>
+      <div class="work-row"><span class="work-num">05</span><span class="work-title">Personal Brand Strategy</span><p class="work-desc">Positioning, voice, and visual identity. A clear, consistent answer to who you are and why it matters, across every platform and every decade.</p></div>
+      <div class="work-row"><span class="work-num">06</span><span class="work-title">Career Management</span><p class="work-desc">The long view. Five-year arcs, ten-year horizons, transition planning, and the decisions most agencies are too busy chasing the next deal to make.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="enquire reveal" id="enquire">
+  <div class="enquire-inner">
+    <h2 class="enquire-heading">Get<br>In Touch.</h2>
+    <div class="enquire-grid">
+      <div class="enq-card">
+        <div class="enq-label">For Talent</div>
+        <h3 class="enq-title">Seeking Representation</h3>
+        <p class="enq-desc">Athletes, entertainers, presenters, founders, and public figures considering boutique representation. New enquiries are reviewed in confidence, and we respond personally to every approach we consider.</p>
+        <a href="mailto:samuel@elanagency.com.au?subject=Elan Talent - Representation Enquiry" class="enq-cta">Begin a Conversation</a>
+      </div>
+      <div class="enq-card">
+        <div class="enq-label">For Brands</div>
+        <h3 class="enq-title">Working With Our Talent</h3>
+        <p class="enq-desc">Brands, agencies, and media partners interested in working with our roster on endorsements, ambassadorships, appearances, or commercial campaigns. Send the brief and we respond personally.</p>
+        <a href="mailto:samuel@elanagency.com.au?subject=Elan Talent - Brand Enquiry" class="enq-cta">Submit a Brief</a>
+      </div>
+    </div>
+    <div class="enq-direct">
+      <span class="enq-direct-label">Direct</span>
+      <a href="mailto:samuel@elanagency.com.au">samuel@elanagency.com.au</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div>
+      <div class="foot-brand">Élan Talent</div>
+      <p class="foot-tagline">A division of Élan Agency. Boutique talent management by invitation. Brisbane, Australia.</p>
+    </div>
+    <div class="foot-col">
+      <div class="foot-col-label">Navigation</div>
+      <a href="index.html">← Élan Agency</a>
+      <a href="#about">About</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#work">What We Do</a>
+      <a href="#enquire">Contact</a>
+    </div>
+    <div class="foot-col">
+      <div class="foot-col-label">Group</div>
+      <a href="elan-realty.html">Élan Realty</a>
+      <a href="scents-of-elan.html">Scents of Élan</a>
+      <a href="cozzee.html">Cozzee Coffee</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© Élan Talent MMXXVI</span>
+    <span>Brisbane · Australia</span>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > window.innerHeight - 80) {
+    nav.classList.remove('over-hero');
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.add('over-hero');
+    nav.classList.remove('scrolled');
+  }
+});
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.06 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
